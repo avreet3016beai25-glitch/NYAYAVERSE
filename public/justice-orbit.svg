@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <defs>
+    <linearGradient id="rim" x1="35" y1="20" x2="205" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399"/>
+      <stop offset="0.5" stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientTransform="translate(120 112) rotate(90) scale(96)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0.05"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="106" stroke="url(#rim)" stroke-width="3"/>
+  <circle cx="120" cy="120" r="88" fill="url(#core)" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M120 40V200M64 64H176M64 64L50 92H78L64 64ZM176 64L162 92H190L176 64ZM120 40L106 58H134L120 40Z" stroke="#0F766E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="120" cy="120" r="24" fill="#10B981"/>
+  <path d="M120 105V135M108 112H132M108 128H132" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="120" r="106" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="8 18"/>
+  <circle cx="120" cy="14" r="7" fill="#F59E0B"/>
+  <circle cx="120" cy="226" r="7" fill="#3B82F6"/>
+</svg>

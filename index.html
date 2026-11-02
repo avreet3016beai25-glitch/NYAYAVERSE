@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,25 95,65 50,95 5,65 5,25' fill='%23030712' stroke='%2300f2fe' stroke-width='6'/><path d='M50 20 L50 80 M30 35 L70 35 M25 50 L35 50 M65 50 L75 50' stroke='%2300f2fe' stroke-width='4' stroke-linecap='round'/></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,25 95,65 50,95 5,65 5,25' fill='%2310b981' stroke='%23059669' stroke-width='6'/><path d='M50 20 L50 80 M30 35 L70 35 M25 50 L35 50 M65 50 L75 50' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NYAYAVERSE | The Internet of Consumer Justice</title>
-    <meta name="description" content="India's futuristic, AI-powered consumer protection platform. Detect exploitation, defend your rights, and demand justice." />
+    <meta name="description" content="India's unified, AI-powered consumer protection platform. Detect deceptive practices, defend your rights under CPA 2019, and demand justice." />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS with custom styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -19,22 +19,22 @@
           extend: {
             colors: {
               nyaya: {
-                dark: '#030712',
-                card: 'rgba(10, 18, 38, 0.75)',
-                border: 'rgba(0, 242, 254, 0.2)',
-                cyan: '#00f2fe',
-                cyanGlow: '#00e5ff',
+                dark: '#090D16',
+                cream: '#FAF7F2',
+                card: 'rgba(255, 255, 255, 0.95)',
+                border: 'rgba(231, 226, 215, 0.8)',
+                emerald: '#10b981',
+                emeraldDark: '#059669',
+                cyan: '#06b6d4',
                 blue: '#3b82f6',
                 purple: '#8b5cf6',
-                gold: '#f59e0b',
-                crimson: '#ef4444',
-                emerald: '#10b981',
+                amber: '#f59e0b',
+                rose: '#f43f5e',
               }
             },
             fontFamily: {
               sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
               mono: ['JetBrains Mono', 'monospace'],
-              display: ['Orbitron', 'Inter', 'sans-serif'],
             }
           }
         }
@@ -42,7 +42,7 @@
     </script>
     <link rel="stylesheet" href="/src/index.css" />
   </head>
-  <body class="bg-[#030712] text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden min-h-screen">
+  <body class="bg-[#FAF7F2] text-stone-900 dark:bg-[#090D16] dark:text-stone-100 antialiased selection:bg-emerald-500/20 selection:text-emerald-900 dark:selection:text-emerald-200 overflow-x-hidden min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

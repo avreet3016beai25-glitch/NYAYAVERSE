@@ -15,7 +15,12 @@ import {
   Flame,
   Award,
   Sun,
-  Moon
+  Moon,
+  Phone,
+  Eye,
+  FileText,
+  BarChart3,
+  Bot
 } from './icons';
 
 interface NavbarProps {
@@ -47,20 +52,18 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSettings,
   onOpenOfficialResources,
 }) => {
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems: { id: NavTab; labelEn: string; labelHi: string; icon: string }[] = [
-    { id: 'home', labelEn: 'Command Centre', labelHi: 'कमांड सेंटर', icon: 'Shield' },
-    { id: 'truth-scanner', labelEn: 'Truth Scanner', labelHi: 'ट्रुथ स्कैनर', icon: 'Search' },
-    { id: 'nyaya-ai', labelEn: 'AI Investigator', labelHi: 'न्याय एआई', icon: 'Bot' },
-    { id: 'courtroom', labelEn: 'AI Courtroom', labelHi: 'एआई अदालत', icon: 'Gavel' },
-    { id: 'radar', labelEn: 'Consumer Radar', labelHi: 'कंज्यूमर रडार', icon: 'MapPin' },
-    { id: 'scam-survival', labelEn: 'Scam Survival', labelHi: 'स्कैम गेम', icon: 'Flame' },
-    { id: 'money-detective', labelEn: 'Money Detective', labelHi: 'मनी डिटेक्टिव', icon: 'BarChart' },
-    { id: 'complaint-generator', labelEn: 'Justice in 60s', labelHi: '60s न्याय', icon: 'FileText' },
-    { id: 'rights', labelEn: 'Rights Universe', labelHi: 'अधिकार', icon: 'BookOpen' },
-    { id: 'dashboard', labelEn: 'Dashboard', labelHi: 'डैशबोर्ड', icon: 'Award' },
+  const navItems: { id: NavTab; labelEn: string; labelHi: string }[] = [
+    { id: 'home', labelEn: 'Overview', labelHi: 'होम' },
+    { id: 'truth-scanner', labelEn: 'Truth Scanner', labelHi: 'ट्रुथ स्कैनर' },
+    { id: 'courtroom', labelEn: 'AI Courtroom', labelHi: 'एआई अदालत' },
+    { id: 'radar', labelEn: 'Consumer Radar', labelHi: 'कंज्यूमर रडार' },
+    { id: 'scam-survival', labelEn: 'Scam Arena', labelHi: 'स्कैम गेम' },
+    { id: 'money-detective', labelEn: 'Money Detective', labelHi: 'मनी डिटेक्टिव' },
+    { id: 'complaint-generator', labelEn: 'Notice in 60s', labelHi: '60s न्याय' },
+    { id: 'rights', labelEn: 'Rights Guide', labelHi: 'अधिकार' },
+    { id: 'dashboard', labelEn: 'Dashboard', labelHi: 'डैशबोर्ड' },
   ];
 
   const handleNav = (tab: NavTab) => {
@@ -70,69 +73,74 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full glass-panel border-b border-cyan-500/20 bg-[#030712]/90 backdrop-blur-md">
-      {/* Top micro-banner */}
-      <div className="bg-gradient-to-r from-cyan-950/60 via-blue-950/40 to-purple-950/60 px-4 py-1 text-xs text-slate-300 border-b border-cyan-500/10 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span className="font-mono text-cyan-300 font-medium">THINK 2 BUILD HACKATHON 2026</span>
-          <span className="hidden sm:inline text-slate-400">| National Consumer Protection AI Initiative</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <button 
-            onClick={onOpenOfficialResources}
-            className="text-xs text-cyan-400 hover:text-cyan-200 underline flex items-center gap-1 transition"
-          >
-            <span>Govt Helpline: 1915</span>
-          </button>
-          <button
-            onClick={onOpenDailyChallenge}
-            className="hidden md:flex items-center gap-1 px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 text-[11px] transition"
-          >
-            <Sparkles size={12} className="text-amber-400" />
-            <span>Daily Challenge +50 XP</span>
-          </button>
+    <header className="sticky top-0 z-50 w-full bg-[#FAF7F2]/95 dark:bg-[#090D16]/95 border-b border-stone-200/80 dark:border-slate-800 backdrop-blur-md transition-colors duration-200">
+      {/* Top minimal helpline strip */}
+      <div className="bg-[#F0ECE1] dark:bg-slate-900/90 border-b border-stone-200 dark:border-slate-800/80 px-4 py-1.5 text-[11px] text-stone-600 dark:text-stone-300 flex items-center justify-between">
+        <div className="flex items-center gap-2 max-w-6xl mx-auto w-full justify-between">
+          <div className="flex items-center gap-2 font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span className="font-semibold text-stone-900 dark:text-stone-100">THINK 2 BUILD HACKATHON 2026</span>
+            <span className="hidden sm:inline text-stone-400 dark:text-slate-500">•</span>
+            <span className="hidden sm:inline text-stone-600 dark:text-stone-400">National Consumer Protection AI Platform</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={onOpenOfficialResources}
+              className="text-stone-700 dark:text-stone-300 hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold flex items-center gap-1.5 transition"
+            >
+              <Phone size={12} className="text-emerald-600" />
+              <span>NCH Helpline 1915</span>
+            </button>
+
+            <button
+              onClick={onOpenDailyChallenge}
+              className="hidden md:flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 text-[10px] font-semibold transition"
+            >
+              <Sparkles size={11} className="text-amber-500" />
+              <span>Daily Challenge (+50 XP)</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo & Brand */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18 sm:h-20">
+          {/* Logo & Brand (Clean & Minimal) */}
           <div 
             onClick={() => handleNav('home')}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group select-none"
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 via-blue-600/20 to-purple-600/30 border border-cyan-400/40 shadow-[0_0_15px_rgba(0,242,254,0.3)] group-hover:shadow-[0_0_25px_rgba(0,242,254,0.6)] transition-all">
-              <Shield size={22} className="text-cyan-400 transition-transform group-hover:scale-110" />
-              <div className="absolute inset-0 rounded-xl border border-cyan-400/30 animate-pulse"></div>
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow-sm transition-transform group-hover:scale-105">
+              <Shield size={20} />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-black text-xl tracking-wider bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+              <div className="flex items-center gap-2">
+                <span className="font-black text-xl tracking-tight text-stone-900 dark:text-white">
                   NYAYAVERSE
                 </span>
-                <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                  AI v2.6
+                <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300">
+                  AI
                 </span>
               </div>
-              <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-                {language === 'hi' ? 'पहचानें • रक्षा करें • न्याय' : 'Detect • Defend • Demand'}
+              <p className="text-[10px] font-medium tracking-wider text-stone-500 dark:text-stone-400 uppercase">
+                {language === 'hi' ? 'उपभोक्ता न्याय मंच' : 'Consumer Justice'}
               </p>
             </div>
           </div>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden xl:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 sm:gap-2">
             {navItems.map((item) => {
               const active = currentTab === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNav(item.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
                     active
-                      ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-400/40 shadow-[0_0_12px_rgba(0,242,254,0.2)]'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                      ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow-sm'
+                      : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/50 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   <span>{language === 'hi' ? item.labelHi : item.labelEn}</span>
@@ -141,23 +149,22 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Quick Tools & Toggles */}
-          <div className="flex items-center gap-2">
-            {/* Command Palette Button */}
+          {/* Right Action Buttons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Quick Search */}
             <button
               onClick={() => { sound.playClick(); onOpenCommandPalette(); }}
-              className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 text-xs transition font-mono"
+              className="p-2 sm:px-3 sm:py-2 rounded-full border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-stone-600 dark:text-stone-300 hover:border-stone-400 text-xs font-medium transition flex items-center gap-1.5 shadow-sm"
               title="Search and Jump (Ctrl + K)"
             >
-              <Search size={14} className="text-cyan-400" />
-              <span className="hidden sm:inline">Search</span>
-              <kbd className="hidden md:inline text-[10px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-400">⌘K</kbd>
+              <Search size={14} />
+              <span className="hidden xl:inline">Search</span>
             </button>
 
-            {/* Language Toggle (EN / HI) */}
+            {/* Language Toggle */}
             <button
               onClick={() => { sound.playClick(); onToggleLanguage(); }}
-              className="px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 text-xs font-mono font-semibold transition"
+              className="px-2.5 py-1.5 rounded-full border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-stone-800 dark:text-stone-200 text-xs font-bold transition shadow-sm hover:border-stone-400"
               title="Switch Language / भाषा बदलें"
             >
               {language === 'en' ? 'हिन्दी' : 'EN'}
@@ -166,40 +173,49 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Dark / Light Mode Toggle */}
             <button
               onClick={() => { sound.playClick(); onToggleTheme(); }}
-              className="p-2 rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 text-xs transition"
+              className="p-2 rounded-full border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-stone-700 dark:text-stone-300 hover:border-stone-400 text-xs transition shadow-sm"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {theme === 'dark' ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-blue-500" />}
+              {theme === 'dark' ? <Sun size={15} className="text-amber-400" /> : <Moon size={15} className="text-stone-700" />}
             </button>
 
             {/* Sound Toggle */}
             <button
               onClick={onToggleSound}
-              className="p-2 rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 text-xs transition"
+              className="p-2 rounded-full border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-stone-700 dark:text-stone-300 hover:border-stone-400 text-xs transition shadow-sm"
               title={soundEnabled ? 'Mute Sound FX' : 'Enable Sound FX'}
             >
-              {soundEnabled ? <Volume2 size={16} className="text-cyan-400" /> : <VolumeX size={16} className="text-slate-500" />}
+              {soundEnabled ? <Volume2 size={15} className="text-emerald-600" /> : <VolumeX size={15} className="text-stone-400" />}
             </button>
 
-            {/* Settings Modal */}
+            {/* Settings */}
             <button
               onClick={() => { sound.playClick(); onOpenSettings(); }}
-              className="p-2 rounded-lg bg-slate-900/80 border border-slate-700/60 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 text-xs transition"
-              title="AI & Platform Settings"
+              className="p-2 rounded-full border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-stone-700 dark:text-stone-300 hover:border-stone-400 text-xs transition shadow-sm"
+              title="Settings"
             >
-              <Settings size={16} className="text-slate-400 hover:text-cyan-300" />
+              <Settings size={15} />
+            </button>
+
+            {/* Primary Action Button (Matches the top-right DONATE pill button in reference image) */}
+            <button
+              onClick={() => handleNav('truth-scanner')}
+              className="hidden sm:flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#10b981] hover:bg-[#059669] text-white text-xs font-semibold tracking-wider uppercase shadow-sm hover:shadow transition-all"
+            >
+              <Eye size={14} />
+              <span>Start Scan</span>
             </button>
 
             {/* Mobile Hamburger Menu */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-lg bg-slate-900/80 border border-slate-700 text-slate-300 hover:text-cyan-300"
+              className="lg:hidden p-2 rounded-full border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-stone-300"
+              aria-label="Toggle navigation menu"
             >
-              <span className="sr-only">Open menu</span>
               <div className="w-5 h-4 flex flex-col justify-between">
-                <span className={`h-0.5 w-full bg-cyan-400 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-                <span className={`h-0.5 w-full bg-cyan-400 transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`h-0.5 w-full bg-cyan-400 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                <span className={`h-0.5 w-full bg-stone-800 dark:bg-stone-200 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`h-0.5 w-full bg-stone-800 dark:bg-stone-200 transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`h-0.5 w-full bg-stone-800 dark:bg-stone-200 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
               </div>
             </button>
           </div>
@@ -208,28 +224,28 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-cyan-500/20 bg-[#030712]/95 px-4 pt-3 pb-6 space-y-1.5 shadow-2xl">
+        <div className="lg:hidden border-t border-stone-200 dark:border-slate-800 bg-[#FAF7F2] dark:bg-[#090D16] px-4 pt-4 pb-6 space-y-2 shadow-xl">
           <div className="grid grid-cols-2 gap-2 mb-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNav(item.id)}
-                className={`p-2.5 rounded-lg text-xs font-medium text-left transition flex items-center gap-2 ${
+                className={`p-2.5 rounded-xl text-xs font-semibold text-left transition ${
                   currentTab === item.id
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50'
-                    : 'bg-slate-900/60 text-slate-300 hover:bg-slate-800'
+                    ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900'
+                    : 'bg-white dark:bg-slate-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-slate-700'
                 }`}
               >
                 <span>{language === 'hi' ? item.labelHi : item.labelEn}</span>
               </button>
             ))}
           </div>
-          <div className="pt-2 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
-            <button onClick={onOpenDailyChallenge} className="text-amber-400 flex items-center gap-1">
+          <div className="pt-3 border-t border-stone-200 dark:border-slate-800 flex justify-between items-center text-xs">
+            <button onClick={onOpenDailyChallenge} className="text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1">
               <Sparkles size={14} /> Daily Challenge (+50 XP)
             </button>
-            <button onClick={onOpenOfficialResources} className="text-cyan-400 underline">
-              Official Helpline 1915
+            <button onClick={onOpenOfficialResources} className="text-emerald-700 dark:text-emerald-400 font-bold underline">
+              NCH Helpline 1915
             </button>
           </div>
         </div>

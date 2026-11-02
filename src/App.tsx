@@ -23,7 +23,7 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('nyayaverse_theme');
-    return (saved === 'light' || saved === 'dark') ? saved : 'dark';
+    return (saved === 'light' || saved === 'dark') ? saved : 'light';
   });
   const [soundEnabled, setSoundEnabled] = useState<boolean>(sound.enabled);
   const [commandPaletteOpen, setCommandPaletteOpen] = useState<boolean>(false);
@@ -93,7 +93,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-[#030712] text-slate-100' : 'bg-slate-100 text-slate-900'} flex flex-col font-sans transition-colors duration-200 selection:bg-cyan-500/30 selection:text-cyan-200`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-[#090D16] text-slate-100' : 'bg-[#FAF7F2] text-stone-900'} flex flex-col font-sans transition-colors duration-200 selection:bg-emerald-500/30 selection:text-emerald-900 dark:selection:text-emerald-200`}>
       {/* Futuristic Command Center Top Navigation */}
       <Navbar
         currentTab={currentTab}
